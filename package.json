@@ -1,0 +1,20 @@
+{
+  "name": "iete-isf-website-updation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhinav-37/IETE-ISF-WEBSITE-UPDATION.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abhinav-37/IETE-ISF-WEBSITE-UPDATION/issues"
+  },
+  "homepage": "https://github.com/abhinav-37/IETE-ISF-WEBSITE-UPDATION#readme"
+}
