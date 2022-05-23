@@ -8,6 +8,10 @@ router.get("/", (req, res) => {
     res.render("../views/client-side/pages/index.ejs");
 });
 
+router.get("/member", (req, res) => {
+    res.render("../views/client-side/pages/portfolio-details.ejs");
+});
+
 router.get("/event", (req, res) => {
     res.send("See the event");
 });
