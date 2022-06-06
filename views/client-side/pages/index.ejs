@@ -21,6 +21,7 @@
     <link href="../../../public/client-side/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../../public/client-side/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="../../../public/client-side/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link href="../../../public/client-side/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="../../../public/client-side/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
@@ -52,10 +53,10 @@
                 <li><a href="#resume" class="nav-link scrollto"><i class="bx bxs-school"></i> <span>Faculty
                             Coordinator</span></a>
                 </li>
-                <li><a href="#portfolio" class="nav-link scrollto"><i class='bx bx-calendar-event'></i>
+                <li><a href="#portfolio" class="nav-link scrollto"><i class='bx bx-group'></i>
                         <span>Our Team</span></a>
                 </li>
-                <li><a href="#services" class="nav-link scrollto"><i class='bx bx-group'></i> <span>Team</span></a>
+                <li><a href="#services" class="nav-link scrollto"><i class='bx bx-customize'></i> <span>Our Domains</span></a>
                 </li>
                 <li><a href="#contact" class="nav-link scrollto"><i class='bx bx-send'></i>
                         <span>Contact Us</span></a>
@@ -130,10 +131,9 @@
                     </div>
                     <div class="col-lg-8 pt-4 pt-lg-0 content">
                         <p>
-                            Our faculty coordinator, Dr. Kishore V krishnan, obtained his bachelor's degree from the Kerala University. He has done his masters degree from Indian Institute of Technology, Roorkee. He got his doctorate in the field of Wireless Communications and is
-                            currently working as an Associate Professor in Vellore Institute of Technology. His field of research is dynamic spectrum management and wireless communication and he has numerous papers publications in various national and
-                            international journals. Not only has IETE - ISF, won the best chapter award in his tenure, but also his excellent guidance has helped us reach greater heights. We look forward to excel further with his enormous support by our
-                            side.
+                            <% faccoord.forEach(function (facC) { %>
+                                <%= facC.sideText %>
+                                    <% }) %>
                         </p>
                     </div>
                 </div>
@@ -155,169 +155,17 @@
                 <div class="row">
                     <div class="col-lg-12 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
                         <ul id="portfolio-flters">
-                            <li data-filter="*" class="filter-active">All</li>
+                            <!-- <li data-filter="*" class="filter-active">All</li>
                             <li data-filter=".filter-app">App</li>
                             <li data-filter=".filter-card">Card</li>
-                            <li data-filter=".filter-web">Web</li>
+                            <li data-filter=".filter-web">Web</li> -->
                         </ul>
                     </div>
                 </div>
 
                 <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
 
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                        <div class="portfolio-wrap">
-                            <img src="../../../public/client-side/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                                <h4>Chairperson</h4>
-                                <p>Connect</p>
-                                <div class="portfolio-links">
-                                    <a href="../../../public/client-side/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i
-                                            class="bx bx-plus"></i></a>
-                                    <a href="/member" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i
-                                            class="bx bx-link"></i></a>
-                                    <a href="https://www.linkedin.com/in/madhurpadavala/" target=”_blank” class="linkedin"><i class="bx bxl-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                        <div class="portfolio-wrap">
-                            <img src="../../../public/client-side/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                                <h4>Vice Chairperson</h4>
-                                <p>Connect</p>
-                                <div class="portfolio-links">
-                                    <a href="../../../public/client-side/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i
-                                            class="bx bx-plus"></i></a>
-                                    <a href="./portfolio-details.ejs" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i
-                                            class="bx bx-link"></i></a>
-                                    <a href="https://www.linkedin.com/in/devayani-m-392a65168/" target=”_blank” class="linkedin"><i class="bx bxl-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                        <div class="portfolio-wrap">
-                            <img src="../../../public/client-side/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                                <h4>Secretary</h4>
-                                <p>Connect</p>
-                                <div class="portfolio-links">
-                                    <a href="../../../public/client-side/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i
-                                            class="bx bx-plus"></i></a>
-                                    <a href="https://www.linkedin.com/in/sushant4191/" target=”_blank” class="linkedin"><i class="bx bxl-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                        <div class="portfolio-wrap">
-                            <img src="../../../public/client-side/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                                <h4>Co-Secretary</h4>
-                                <p>Connect</p>
-                                <div class="portfolio-links">
-                                    <a href="../../../public/client-side/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i
-                                            class="bx bx-plus"></i></a>
-                                    <a href="https://www.linkedin.com/in/anshuman-phadke-6506aa1b5/" target=”_blank” class="linkedin"><i class="bx bxl-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                        <div class="portfolio-wrap">
-                            <img src="../../../public/client-side/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                                <h4>Technical Director</h4>
-                                <p>Connect</p>
-                                <div class="portfolio-links">
-                                    <a href="../../../public/client-side/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i
-                                            class="bx bx-plus"></i></a>
-                                    <a href="https://www.linkedin.com/in/abhinav-sharma-95754018b/" target=”_blank” class="linkedin"><i class="bx bxl-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                        <div class="portfolio-wrap">
-                            <img src="../../../public/client-side/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                                <h4>Design Director</h4>
-                                <p>Connect</p>
-                                <div class="portfolio-links">
-                                    <a href="../../../public/client-side/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i
-                                            class="bx bx-plus"></i></a>
-                                    <a href="https://www.linkedin.com/in/aishaandatt/" target=”_blank” class="linkedin"><i class="bx bxl-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                        <div class="portfolio-wrap">
-                            <img src="../../../public/client-side/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                                <h4>Project Director</h4>
-                                <p>Connect</p>
-                                <div class="portfolio-links">
-                                    <a href="../../../public/client-side/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i
-                                            class="bx bx-plus"></i></a>
-                                    <a href="https://www.linkedin.com/in/nithesh-cp/" target=”_blank” class="linkedin"><i class="bx bxl-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                        <div class="portfolio-wrap">
-                            <img src="../../../public/client-side/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                                <h4>Outreach Director</h4>
-                                <p>Connect</p>
-                                <div class="portfolio-links">
-                                    <a href="../../../public/client-side/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i
-                                            class="bx bx-plus"></i></a>
-                                    <a href="https://www.linkedin.com/in/nithesh-cp/" target=”_blank” class="linkedin"><i class="bx bxl-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                        <div class="portfolio-wrap">
-                            <img src="../../../public/client-side/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                                <h4>Management Director</h4>
-                                <p>Connect</p>
-                                <div class="portfolio-links">
-                                    <a href="../../../public/client-side/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i
-                                            class="bx bx-plus"></i></a>
-                                    <a href="https://www.linkedin.com/in/siddharth-dinkar-3896b81b4/" target=”_blank” class="linkedin"><i class="bx bxl-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                        <div class="portfolio-wrap">
-                            <img src="../../../public/client-side/img/portfolio/portfolio-10.jpg" class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                                <h4>HR Director</h4>
-                                <p>Connect</p>
-                                <div class="portfolio-links">
-                                    <a href="../../../public/client-side/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i
-                                            class="bx bx-plus"></i></a>
-                                    <a href="https://www.linkedin.com/in/madhurpadavala/" target=”_blank” class="linkedin"><i class="bx bxl-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <%- include('../partials/board-member.ejs') %>
 
                 </div>
 
@@ -330,9 +178,15 @@
             <div class="container" data-aos="fade-up">
 
                 <div class="section-title">
-                    <h2>Services</h2>
-                    <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi
-                        quidem hic quas.</p>
+                    <h2>Domains</h2>
+                    <p>Dive deep into specific topics with the help of various domains offered by IETE-ISF</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+                        <ul id="portfolio-flters">
+                        </ul>
+                    </div>
                 </div>
 
                 <div class="row">
@@ -433,95 +287,6 @@
         </section>
         <!-- End Services Section -->
 
-        <!-- ======= Testimonials Section ======= -->
-        <section id="testimonials" class="testimonials section-bg">
-            <div class="container" data-aos="fade-up">
-
-                <div class="section-title">
-                    <h2>Testimonials</h2>
-                </div>
-
-                <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-                    <div class="swiper-wrapper">
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-item">
-                                <img src="../../../public/client-side/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                                <h3>Saul Goodman</h3>
-                                <h4>Ceo &amp; Founder</h4>
-                                <p>
-                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i> Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam,
-                                    risus at semper.
-                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                </p>
-                            </div>
-                        </div>
-                        <!-- End testimonial item -->
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-item">
-                                <img src="../../../public/client-side/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                                <h3>Sara Wilsson</h3>
-                                <h4>Designer</h4>
-                                <p>
-                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i> Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure
-                                    amet legam anim culpa.
-                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                </p>
-                            </div>
-                        </div>
-                        <!-- End testimonial item -->
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-item">
-                                <img src="../../../public/client-side/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                                <h3>Jena Karlis</h3>
-                                <h4>Store Owner</h4>
-                                <p>
-                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i> Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint
-                                    minim.
-                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                </p>
-                            </div>
-                        </div>
-                        <!-- End testimonial item -->
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-item">
-                                <img src="../../../public/client-side/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                                <h3>Matt Brandon</h3>
-                                <h4>Freelancer</h4>
-                                <p>
-                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i> Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem
-                                    dolore labore illum veniam.
-                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                </p>
-                            </div>
-                        </div>
-                        <!-- End testimonial item -->
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-item">
-                                <img src="../../../public/client-side/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                                <h3>John Larson</h3>
-                                <h4>Entrepreneur</h4>
-                                <p>
-                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i> Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse
-                                    veniam culpa fore nisi cillum quid.
-                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                </p>
-                            </div>
-                        </div>
-                        <!-- End testimonial item -->
-
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
-
-            </div>
-        </section>
-        <!-- End Testimonials Section -->
-
         <!-- ======= Contact Section ======= -->
         <section id="contact" class="contact">
             <div class="container" data-aos="fade-up">
@@ -537,19 +302,31 @@
                             <div class="address">
                                 <i class="bi bi-geo-alt"></i>
                                 <h4>Location:</h4>
-                                <p>A108 Adam Street, New York, NY 535022</p>
+                                <p>
+                                    <% contact.forEach(function(con){ %>
+                                        <%= con.location %>
+                                            <% }) %>
+                                </p>
                             </div>
 
                             <div class="email">
                                 <i class="bi bi-envelope"></i>
                                 <h4>Email:</h4>
-                                <p>info@example.com</p>
+                                <p>
+                                    <% contact.forEach(function(con){ %>
+                                        <%= con.email %>
+                                            <% }) %>
+                                </p>
                             </div>
 
                             <div class="phone">
                                 <i class="bi bi-phone"></i>
                                 <h4>Call:</h4>
-                                <p>+1 5589 55488 55s</p>
+                                <p>
+                                    <% contact.forEach(function(con){ %>
+                                        <%= con.phoneNumber %>
+                                            <% }) %>
+                                </p>
                             </div>
 
                         </div>
