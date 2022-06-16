@@ -1,20 +1,20 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
 const boardSchema = mongoose.Schema({
-    boardImage: {
-        type: String
-    },
-    designation: {
-        type: String
-    },
-    description: {
-        type: String
-    },
-    linkedin: {
-        type: String
-    }
-})
+  boardImage: {
+    type: String,
+  },
+  designation: {
+    type: String,
+  },
+  description: {
+    type: String,
+  },
+  linkedin: {
+    type: String,
+  },
+});
 
-const Board = mongoose.model('Board', boardSchema)
+const Board = mongoose.model("Board", boardSchema);
 
-module.exports = Board
+module.exports = Board;
