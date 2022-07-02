@@ -1,20 +1,27 @@
-<div class="col-lg-4 col-md-6 portfolio-item ">
-    <div class="portfolio-wrap">
-        <% board.forEach(function(boardMem){ %>
-            <img src="<%= boardMem.boardImage %>" class="img-fluid" alt="">
-            <div class="portfolio-info">
-                <h4>
-                    <%= boardMem.designation %>
-                </h4>
-                <p>Connect</p>
-                <div class="portfolio-links">
-                    <a href="../../../public/client-side/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="<%= boardMem.description %>"><i
-                        class="bx bx-plus"></i></a>
-                    <a href="/member" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i
-                        class="bx bx-link"></i></a>
-                    <a href="<%= boardMem.linkedin %>" target=”_blank” class="linkedin"><i class="bx bxl-linkedin"></i></a>
+<div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+    <% board.forEach(function(boardMem){ %>
+
+        <div class="col-lg-4 col-md-6 portfolio-item ">
+            <div class="portfolio-wrap">
+
+                <!-- <img src="<%= boardMem.boardImage %>" class="img-fluid" alt=""> -->
+                <img src="data:image/<%= boardMem.boardImage.contentType%>;base64,<%=boardMem.boardImage.data.toString('base64')%>" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                    <h4>
+                        <%= boardMem.designation %>
+                    </h4>
+                    <p>Connect</p>
+                    <div class="portfolio-links">
+                        <a href="../../../public/client-side/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="<%= boardMem.description %>"><i
+                            class="bx bx-plus"></i></a>
+                        <!-- <a href="/member" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i
+                            class="bx bx-link"></i></a> -->
+                        <a href="<%= boardMem.linkedin %>" target=”_blank” class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                    </div>
                 </div>
+
             </div>
-            <% }) %>
-    </div>
+        </div>
+
+        <% }) %>
 </div>

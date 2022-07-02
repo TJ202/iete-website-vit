@@ -25,9 +25,59 @@
                             <!-- Begin Page Content -->
                             <div class="container-fluid">
 
-                                <!-- Page Heading -->
-                                <h1 class="h3 mb-2 text-gray-800">Board Members</h1>
-                                <p class="mb-4">Change or add board members:-</p>
+                                <div class="flex">
+                                    <!-- Page Heading -->
+                                    <div class="left">
+                                        <h1 class="h3 mb-2 text-gray-800">Board Members</h1>
+                                        <p class="mb-4">Change or add board members:-</p>
+                                    </div>
+
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-primary add-btn" data-toggle="modal" data-target="#addMember">
+                                        Add
+                                    </button>
+                                </div>
+
+                                <!-- Add Modal -->
+                                <div class="modal fade" id="addMember" tabindex="-1" role="dialog" aria-labelledby="addMemberTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 60%;">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="addMemberTitle">Add Board Member</h5>
+
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <table class="table table-bordered" width="100%" cellspacing="0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Image</th>
+                                                            <th>Designation</th>
+                                                            <th>Description</th>
+                                                            <th>LinkedIn</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <form action="/board/add-board" method="post" enctype="multipart/form-data">
+                                                                <td><input type="file" class="ip-fields" name="boardImageAdd" id="boardImage" placeholder="Image URL"></td>
+                                                                <td><input type="text" class="ip-fields" name="designationAdd" id="designation" placeholder="Designation Of Board Member"></td>
+                                                                <td><input type="text" class="ip-fields" name="descriptionAdd" id="description" placeholder="Description Of Board Member"></td>
+                                                                <td><input type="text" class="ip-fields" name="linkedinAdd" id="linkedin" placeholder="LinkedIn URL"></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-success">Add new member</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
                                 <!-- DataTales Example -->
                                 <div class="card shadow mb-4">
@@ -46,20 +96,12 @@
                                                         <th></th>
                                                     </tr>
                                                 </thead>
-                                                <tfoot>
-                                                    <tr>
-                                                        <th>Image</th>
-                                                        <th>Designation</th>
-                                                        <th>Description</th>
-                                                        <th>LinkedIn</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </tfoot>
                                                 <tbody>
-                                                    <% board.forEach(function(b) { %>
+                                                    <% board.forEach(function(b, i) { %>
                                                         <tr>
                                                             <td>
-                                                                <%= b.boardImage %>
+                                                                Image -
+                                                                <%= b.designation %>
                                                             </td>
                                                             <td>
                                                                 <%= b.designation %>
@@ -70,14 +112,13 @@
                                                             <td>
                                                                 <%= b.linkedin %>
                                                             </td>
-                                                            <td>
+                                                            <td class="buttons">
                                                                 <!-- Button trigger modal -->
-                                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                                                                    Edit
+                                                                <button type="button" class="btn pen" data-toggle="modal" data-target="#fm<%= i %>">
+                                                                    <i class='bx bxs-pencil' ></i>
                                                                 </button>
-
                                                                 <!-- Modal -->
-                                                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                                <div class="modal fade" id="fm<%= i %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                                                     <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 60%;">
                                                                         <div class="modal-content">
                                                                             <div class="modal-header">
@@ -99,8 +140,9 @@
                                                                                     </thead>
                                                                                     <tbody>
                                                                                         <tr>
-                                                                                            <form action="/update-board" method="post">
-                                                                                                <td><input type="text" class="ip-fields" name="boardImage" id="boardImage" value="<%=b .boardImage %>"></td>
+                                                                                            <form action="/board/update-board" method="post" enctype="multipart/form-data">
+                                                                                                <input type="hidden" name="id" value="<%=b._id %>">
+                                                                                                <td><input type="file" class="ip-fields" name="boardImageAdd" id="boardImage"></td>
                                                                                                 <td><input type="text" class="ip-fields" name="designation" id="designation" value="<%=b .designation %>"></td>
                                                                                                 <td><input type="text" class="ip-fields" name="description" id="description" value="<%=b .description %>"></td>
                                                                                                 <td><input type="text" class="ip-fields" name="linkedin" id="linkedin" value="<%=b .linkedin %>"></td>
@@ -110,12 +152,20 @@
                                                                             </div>
                                                                             <div class="modal-footer">
                                                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                                                                <button type="submit" class="btn btn-success">Save changes</button>
                                                                                 </form>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
+
+                                                                <!-- Delete Button -->
+                                                                <form action="/board/delete-board" method="post">
+                                                                    <input type="hidden" name="id" value="<%=b._id %>">
+                                                                    <button type="submit" class="btn pen">
+                                                                    <i class='bx bxs-trash-alt'></i>
+                                                                    </button>
+                                                                </form>
                                                             </td>
                                                         </tr>
                                                         <% }) %>

@@ -1,6 +1,41 @@
 .ip-fields {
-  width: 100%;
-  border: none;
-  border-bottom: 1px solid #4e73df;
-  outline: none;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #4e73df;
+    outline: none;
+}
+
+.dataTables_filter {
+    float: right;
+}
+
+.add-btn {
+    height: fit-content;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pen {
+    background-color: white;
+    padding: 0 0.2rem;
+}
+
+.buttons {
+    display: flex;
+    border-bottom: none !important;
+    border-left: none !important;
+}
+
+td {
+    max-width: 20rem;
+}
+
+.bg {
+    display: flex;
+    align-items: center;
+    height: 100vh;
 }

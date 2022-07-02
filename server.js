@@ -4,13 +4,30 @@ const app = express();
 const ejs = require("ejs");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const session = require("express-session");
+const cookieParser = require("cookie-parser");
+const flash = require("connect-flash");
 
 const PORT = process.env.PORT || 5000;
 const DB_URL = process.env.DB_URI;
+const oneDay = 1000 * 60 * 60 * 24;
+const SECRET = process.env.SECRET;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", ejs);
+app.use(flash());
+
+app.use(
+  session({
+    secret: SECRET,
+    saveUninitialized: true,
+    cookie: { maxAge: oneDay },
+    resave: false,
+  })
+);
+
+app.use(cookieParser());
 
 mongoose
   .connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })

@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 
 const facCoordinatorSchema = mongoose.Schema({
   coordImage: {
-    type: String,
+    data: Buffer,
+    contentType: String,
   },
   sideText: {
     type: String,

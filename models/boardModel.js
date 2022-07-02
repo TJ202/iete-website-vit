@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 
 const boardSchema = mongoose.Schema({
   boardImage: {
-    type: String,
+    data: Buffer,
+    contentType: String,
   },
   designation: {
     type: String,

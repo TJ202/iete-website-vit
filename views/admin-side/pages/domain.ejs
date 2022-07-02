@@ -25,14 +25,62 @@
                             <!-- Begin Page Content -->
                             <div class="container-fluid">
 
-                                <!-- Page Heading -->
-                                <h1 class="h3 mb-2 text-gray-800">Board Members</h1>
-                                <p class="mb-4">Change or add board members:-</p>
+                                <div class="flex">
+                                    <!-- Page Heading -->
+                                    <div class="left">
+                                        <h1 class="h3 mb-2 text-gray-800">Domains</h1>
+                                        <p class="mb-4">Change or add domains:-</p>
+                                    </div>
+
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-primary add-btn" data-toggle="modal" data-target="#addMember">
+                                        Add
+                                    </button>
+                                </div>
+
+                                <!-- Add Modal -->
+                                <div class="modal fade" id="addMember" tabindex="-1" role="dialog" aria-labelledby="addMemberTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 60%;">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="addMemberTitle">Add Domain</h5>
+
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <table class="table table-bordered" width="100%" cellspacing="0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Domain Icon</th>
+                                                            <th>Name</th>
+                                                            <th>Description</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <form action="/domain/add-domain" method="post">
+                                                                <td><input type="text" class="ip-fields" name="domainIconAdd" id="domainIcon" placeholder="Icon Classes"></td>
+                                                                <td><input type="text" class="ip-fields" name="domainNameAdd" id="domainName" placeholder="Name Of Domain"></td>
+                                                                <td><input type="text" class="ip-fields" name="descriptionAdd" id="description" placeholder="Description Of Domain"></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-success">Add new member</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
                                 <!-- DataTales Example -->
                                 <div class="card shadow mb-4">
                                     <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Table of Board Members</h6>
+                                        <h6 class="m-0 font-weight-bold text-primary">Table of Domains</h6>
                                     </div>
                                     <div class="card-body">
                                         <div class="table-responsive">
@@ -42,17 +90,11 @@
                                                         <th>Domain Icon</th>
                                                         <th>Name</th>
                                                         <th>Description</th>
+                                                        <th></th>
                                                     </tr>
                                                 </thead>
-                                                <tfoot>
-                                                    <tr>
-                                                        <th>Domain Icon</th>
-                                                        <th>Name</th>
-                                                        <th>Description</th>
-                                                    </tr>
-                                                </tfoot>
                                                 <tbody>
-                                                    <% domain.forEach(function(c) { %>
+                                                    <% domain.forEach(function(c,i) { %>
                                                         <tr>
                                                             <td>
                                                                 <%= c.domainIcon %>
@@ -62,6 +104,59 @@
                                                             </td>
                                                             <td>
                                                                 <%= c.description %>
+                                                            </td>
+                                                            <td class="buttons">
+                                                                <!-- Button trigger modal -->
+                                                                <button type="button" class="btn pen" data-toggle="modal" data-target="#fm<%= i %>">
+                                                                    <i class='bx bxs-pencil' ></i>
+                                                                </button>
+                                                                <!-- Modal -->
+                                                                <div class="modal fade" id="fm<%= i %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                                    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 60%;">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title" id="exampleModalCenterTitle">Edit Domain</h5>
+
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                        </button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                                                                    <thead>
+                                                                                        <tr>
+                                                                                            <th>Domain Icon</th>
+                                                                                            <th>Name</th>
+                                                                                            <th>Description</th>
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                        <tr>
+                                                                                            <form action="/domain/update-domain" method="post">
+                                                                                                <input type="hidden" name="id" value="<%=c._id %>">
+                                                                                                <td><input type="text" class="ip-fields" name="domainIcon" id="domainIcon" value="<%=c.domainIcon %>"></td>
+                                                                                                <td><input type="text" class="ip-fields" name="domainName" id="domainName" value="<%=c.domainName %>"></td>
+                                                                                                <td><input type="text" class="ip-fields" name="description" id="description" value="<%=c.description %>"></td>
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                                <button type="submit" class="btn btn-success">Save changes</button>
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- Delete Button -->
+                                                                <form action="/domain/delete-domain" method="post">
+                                                                    <input type="hidden" name="id" value="<%=c._id %>">
+                                                                    <button type="submit" class="btn pen">
+                                                                    <i class='bx bxs-trash-alt'></i>
+                                                                    </button>
+                                                                </form>
                                                             </td>
                                                         </tr>
                                                         <% }) %>
