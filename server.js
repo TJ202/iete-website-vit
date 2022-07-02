@@ -1,4 +1,4 @@
-require("dotenv").config({ path: ".env.sample" });
+require("dotenv").config({ path: ".env" });
 const express = require("express");
 const app = express();
 const ejs = require("ejs");
@@ -19,24 +19,24 @@ app.set("view engine", ejs);
 app.use(flash());
 
 app.use(
-  session({
-    secret: SECRET,
-    saveUninitialized: true,
-    cookie: { maxAge: oneDay },
-    resave: false,
-  })
+    session({
+        secret: SECRET,
+        saveUninitialized: true,
+        cookie: { maxAge: oneDay },
+        resave: false,
+    })
 );
 
 app.use(cookieParser());
 
 mongoose
-  .connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => {
-    console.log("✅ Database Connected!");
-  })
-  .catch((err) => {
-    console.log("DB connect error:", err);
-  });
+    .connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
+        console.log("✅ Database Connected!");
+    })
+    .catch((err) => {
+        console.log("DB connect error:", err);
+    });
 
 const boardRoutes = require("./routes/boardRoutes");
 const contactRoutes = require("./routes/contactRoutes");
@@ -52,5 +52,5 @@ app.use("/domain", domainRoutes);
 app.use("/public", express.static("public"));
 
 app.listen(PORT, () =>
-  console.log(`Server started on http://localhost:${PORT}`)
+    console.log(`Server started on http://localhost:${PORT}`)
 );
