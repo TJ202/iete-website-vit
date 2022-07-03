@@ -308,37 +308,6 @@
             <!-- Template Main JS File -->
             <script src="../../../public/client-side/js/main.js"></script>
 
-            <!-- <script>
-        $('form').on('submit', (e) => {
-            e.preventDefault();
-
-            const name = $('#name').val().trim();
-            const email = $('#email').val().trim();
-            const subject = $('#subject').val().trim();
-            const message = $('#message').val().trim();
-
-            const formData = {
-                name,
-                email,
-                subject,
-                message
-            };
-
-            $.post('/email', formData, function(err) {
-                if (err) {
-                    console.log(err);
-                } else {
-                    console.log("server received form data");
-                    // $.getElementsByClassName("sent-message")[0].setAttribute("display", "inline");
-                    // $('.sent-message')
-                }
-            }).always(() => {
-                $.getElementsByClassName("sent-message")[0].setAttribute("display", "inline");
-                console.log("first");
-            })
-        })
-    </script> -->
-
 </body>
 
 </html>

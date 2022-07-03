@@ -1294,3 +1294,8 @@ section {
 #footer .credits {
     font-size: 13px;
 }
+
+.glightbox-container .ginner-container.desc-bottom,
+.glightbox-container .ginner-container.desc-top {
+    width: 50vw;
+}
