@@ -39,3 +39,7 @@ td {
     align-items: center;
     height: 100vh;
 }
+
+.w100 {
+    width: 100%;
+}
