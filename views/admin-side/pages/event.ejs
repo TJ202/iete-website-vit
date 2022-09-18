@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head.ejs') %>
+
+    <body id="page-top">
+
+        <!-- Page Wrapper -->
+        <div id="wrapper">
+
+            <!-- Sidebar -->
+            <%- include ('../partials/sidebar.ejs') %>
+                <!-- End of Sidebar -->
+
+                <!-- Content Wrapper -->
+                <div id="content-wrapper" class="d-flex flex-column">
+
+                    <!-- Main Content -->
+                    <div id="content">
+
+                        <!-- Topbar -->
+                        <%- include ('../partials/topbar.ejs') %>
+                            <!-- End of Topbar -->
+
+                            <!-- Begin Page Content -->
+                            <div class="container-fluid">
+
+                                <div class="flex">
+                                    <!-- Page Heading -->
+                                    <div class="left">
+                                        <h1 class="h3 mb-2 text-gray-800">Events</h1>
+                                        <p class="mb-4">Change or add events:-</p>
+                                    </div>
+
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-primary add-btn" data-toggle="modal" data-target="#addEvent">
+                                        Add
+                                    </button>
+                                </div>
+
+                                <!-- Add Modal -->
+                                <div class="modal fade" id="addEvent" tabindex="-1" role="dialog" aria-labelledby="addEventTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 60%;">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="addEventTitle">Add Event</h5>
+
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <table class="table table-bordered" width="100%" cellspacing="0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Description</th>
+                                                            <th>Link</th>
+                                                            <th>Date</th>
+                                                            <th>Poster Image</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <form action="/event/add-event" method="post" enctype="multipart/form-data">
+                                                                <td><input type="text" class="ip-fields" name="eventNameAdd" id="eventName" placeholder="Name Of Event"></td>
+                                                                <td><input type="text" class="ip-fields" name="eventDescriptionAdd" id="eventDescription" placeholder="Description Of Event"></td>
+                                                                <td><input type="text" class="ip-fields" name="eventLinkAdd" id="eventLink" placeholder="Instagram Link"></td>
+                                                                <td><input type="text" class="ip-fields" name="eventDateAdd" id="eventDate" placeholder="Date & Time Of Event"></td>
+                                                                <td><input type="file" class="ip-fields" name="eventImageAdd" id="eventImage"></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-success">Add new event</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- DataTales Example -->
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3">
+                                        <h6 class="m-0 font-weight-bold text-primary">Table of Events</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th>Description</th>
+                                                        <th>Link</th>
+                                                        <th>Date</th>
+                                                        <th>Poster Image</th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <% event.forEach(function(b, i) { %>
+                                                        <tr>
+                                                            <td>
+                                                                <%= b.eventName %>
+                                                            </td>
+                                                            <td>
+                                                                <%= b.eventDescription %>
+                                                            </td>
+                                                            <td>
+                                                                <%= b.eventLink %>
+                                                            </td>
+                                                            <td>
+                                                                <%= b.eventDate %>
+                                                            </td>
+                                                            <td>
+                                                                Image -
+                                                                <%= b.eventName %>
+                                                            </td>
+                                                            <td class="buttons">
+                                                                <!-- Button trigger modal -->
+                                                                <button type="button" class="btn pen" data-toggle="modal" data-target="#fm<%= i %>">
+                                                                    <i class='bx bxs-pencil' ></i>
+                                                                </button>
+                                                                <!-- Modal -->
+                                                                <div class="modal fade" id="fm<%= i %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                                    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 60%;">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title" id="exampleModalCenterTitle">Edit Event</h5>
+
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                        </button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                                                                    <thead>
+                                                                                        <tr>
+                                                                                            <th>Name</th>
+                                                                                            <th>Description</th>
+                                                                                            <th>Link</th>
+                                                                                            <th>Date</th>
+                                                                                            <th>Poster Image</th>
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                        <tr>
+                                                                                            <form action="/event/update-event" method="post" enctype="multipart/form-data">
+                                                                                                <input type="hidden" name="id" value="<%=b._id %>">
+                                                                                                <td><input type="text" class="ip-fields" name="eventName" id="eventName" value="<%=b.eventName%>"></td>
+                                                                                                <td><input type="text" class="ip-fields" name="eventDescription" id="eventDescription" value="<%=b.eventDescription%>"></td>
+                                                                                                <td><input type="text" class="ip-fields" name="eventLink" id="eventLink" value="<%=b.eventLink%>"></td>
+                                                                                                <td><input type="text" class="ip-fields" name="eventDate" id="eventDate" value="<%=b.eventDate%>"></td>
+                                                                                                <td><input type="file" class="ip-fields" name="eventImageAdd" id="eventImage"></td>
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                                <button type="submit" class="btn btn-success">Save changes</button>
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- Delete Button -->
+                                                                <form action="/event/delete-event" method="post">
+                                                                    <input type="hidden" name="id" value="<%=b._id %>">
+                                                                    <button type="submit" class="btn pen">
+                                                                    <i class='bx bxs-trash-alt'></i>
+                                                                    </button>
+                                                                </form>
+                                                            </td>
+                                                        </tr>
+                                                        <% }) %>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- /.container-fluid -->
+
+                    </div>
+                    <!-- End of Main Content -->
+
+                    <!-- Footer -->
+                    <%- include('../partials/footer.ejs') %>
+                        <!-- End of Footer -->
+
+                </div>
+                <!-- End of Content Wrapper -->
+
+        </div>
+        <!-- End of Page Wrapper -->
+
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+        <!-- Logout Modal-->
+        <%- include('../partials/logout.ejs') %>
+
+            <!-- JS Imports -->
+            <%- include('../partials/jsimportstables.ejs') %>
+
+    </body>
+
+</html>
