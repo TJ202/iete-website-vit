@@ -438,11 +438,11 @@ section {
 }
 
 .left-padding {
-    padding-left: 1rem;
+    padding-left: 2rem;
 }
 
 .right-padding {
-    padding-right: 1rem;
+    padding-right: 2rem;
 }
 
 
@@ -1298,4 +1298,36 @@ section {
 .glightbox-container .ginner-container.desc-bottom,
 .glightbox-container .ginner-container.desc-top {
     width: 50vw;
+}
+
+.sp-width {
+    width: 20%;
+}
+
+div {
+    font-size: initial;
+}
+
+@media (max-width: 992px) {
+    .sp-width {
+        width: 50%;
+    }
+}
+
+@media (max-width: 600px) {
+    .flex {
+        flex-direction: column;
+    }
+    .flex div {
+        width: 100%;
+    }
+    .right-padding {
+        padding-right: 0;
+    }
+    .left-padding {
+        padding-left: 0;
+    }
+    div {
+        font-size: revert;
+    }
 }
