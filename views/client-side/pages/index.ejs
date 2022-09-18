@@ -109,17 +109,17 @@
                             <h2>About</h2>
                             <div class="flex">
                                 <div class="right-padding">
-                                    <h5><i class='bx bx-book-open'></i> Our Story</h5>
+                                    <h3><i class='bx bx-book-open'></i> Our Story</h3>
                                     <p>The IETE Students Forum is set up at Vellore Institute of Technology,Vellore with the assistance and involvement of faculty members of the Institution. The IETE Students Forum has the following broad objectives in technical
                                         landscape.
                                     </p>
                                 </div>
                                 <div>
-                                    <h5><i class='bx bx-target-lock'></i> Aim</h5>
+                                    <h3><i class='bx bx-target-lock'></i> Aim</h3>
                                     <p>To provide a common platform for the student members to exchange ideas and information on technical topics of their interest and improve quality of education.</p>
                                 </div>
                                 <div class="left-padding">
-                                    <h5><i class='bx bx-rocket'></i> Mission</h5>
+                                    <h3><i class='bx bx-rocket'></i> Mission</h3>
                                     <p>To plan and organize technical programmes and activities like seminars, code-a-thons, hackathons, Symposiums, workshops, and exhibitions.</p>
                                 </div>
                             </div>
@@ -136,8 +136,8 @@
                         </div>
                         <div class="row">
                             <% faccoord.forEach(function (facC) { %>
-                                <div class="col-lg-4">
-                                    <img src="data:image/<%= facC.coordImage.contentType%>;base64,<%=facC.coordImage.data.toString('base64')%>" class="img-fluid" alt="">
+                                <div class="col-lg-4" style="text-align: center;">
+                                    <img style="border-radius: 50%;" src="data:image/<%= facC.coordImage.contentType%>;base64,<%=facC.coordImage.data.toString('base64')%>" class="img-fluid" alt="">
                                 </div>
                                 <div class="col-lg-8 pt-4 pt-lg-0 content">
                                     <p>
@@ -189,9 +189,9 @@
                                 </ul>
                             </div>
                         </div>
-
-                        <%- include('../partials/board-member.ejs') %>
-
+                        <div style="align-items: center;">
+                            <%- include('../partials/board-member.ejs') %>
+                        </div>
                     </div>
                 </section>
                 <!-- End Board Members Section -->
