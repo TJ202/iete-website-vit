@@ -42,6 +42,7 @@ const boardRoutes = require("./routes/boardRoutes");
 const contactRoutes = require("./routes/contactRoutes");
 const coordinatorRoutes = require("./routes/coordinatorRoutes");
 const domainRoutes = require("./routes/domainRoutes");
+const eventRoutes = require("./routes/eventRoutes");
 const homeRoute = require("./routes/homeRoute");
 
 app.use("/", homeRoute);
@@ -49,6 +50,7 @@ app.use("/board", boardRoutes);
 app.use("/contact", contactRoutes);
 app.use("/coordinator", coordinatorRoutes);
 app.use("/domain", domainRoutes);
+app.use("/event", eventRoutes);
 app.use("/public", express.static("public"));
 
 app.listen(PORT, () =>
